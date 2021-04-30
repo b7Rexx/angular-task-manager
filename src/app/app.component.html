@@ -1,1 +1,38 @@
-<router-outlet></router-outlet>
+<div class="app-container">
+  <mat-drawer-container class="sidenav-container" autosize>
+    <mat-drawer #drawer class="sidenav-drawer" mode="side">
+      <mat-list role="list">
+        <mat-list-item
+          [class.active]="activeRoute && activeRoute === '/'"
+          role="listitem"
+          (click)="navigate('/')"
+        >
+          <mat-icon aria-hidden="false" aria-label="home">home</mat-icon> Home
+        </mat-list-item>
+        <mat-list-item
+          [class.active]="activeRoute && activeRoute === '/manage'"
+          role="listitem"
+          (click)="navigate('/manage')"
+        >
+          <mat-icon aria-hidden="false" aria-label="task manage"
+            >assignment_turned_in</mat-icon
+          >
+          Manage</mat-list-item
+        >
+        <mat-list-item role="listitem" (click)="logout()">
+          <mat-icon aria-hidden="false" aria-label="logout"
+            >exit_to_app</mat-icon
+          >
+          Logout</mat-list-item
+        >
+      </mat-list>
+    </mat-drawer>
+
+    <div class="sidenav-content">
+      <button type="button" mat-button (click)="drawer.toggle()">
+        <mat-icon aria-hidden="false" aria-label="menu">menu</mat-icon> Task Manager
+      </button>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-container>
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, Event, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'task-manager';
+  activeRoute;
+
+  constructor(private router: Router) {
+    router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationEnd) {
+        this.activeRoute = event.url;
+      }
+    });
+  }
+
+  logout() {}
+
+  navigate(url: string) {
+    this.router.navigateByUrl(url);
+  }
 }
