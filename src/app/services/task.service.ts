@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { Task, TaskType, Priority, Status } from '../models/task.model';
+import { Task } from '../models/task.interface';
+import { TaskType, Priority, Status } from '../models/task.enum';
 
 @Injectable({
   providedIn: 'root',

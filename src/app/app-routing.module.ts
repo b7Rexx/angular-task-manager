@@ -16,11 +16,17 @@ const routes: Routes = [
       import('./pages/task-manage/task-manage.module').then(
         (m) => m.TaskManageModule
       ),
+    canActivate: [AuthGuard],
   },
   {
     path: 'login',
     loadChildren: () =>
       import('./pages/login/login.module').then((m) => m.LoginModule),
+  },
+  {
+    path: 'signup',
+    loadChildren: () =>
+      import('./pages/signup/signup.module').then((m) => m.SignupModule),
   },
 ];
 

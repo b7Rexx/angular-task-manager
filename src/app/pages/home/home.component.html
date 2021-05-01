@@ -1,5 +1,9 @@
 <div class="container">
-  <div *ngFor="let task of taskList">
-    <span>{{ task.title }}</span>
-  </div>
+  <h4>Home</h4>
+  <mat-divider></mat-divider>
+  <ng-container *ngFor="let task of taskList">
+    <app-task-card [task]="task">
+      {{ task.title }}
+    </app-task-card>
+  </ng-container>
 </div>

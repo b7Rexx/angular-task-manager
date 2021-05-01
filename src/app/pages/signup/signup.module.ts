@@ -1,25 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
+import { SignupComponent } from './signup.component';
 import { MaterialModule } from 'src/app/material.module';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { TaskManageComponent } from './task-manage.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: TaskManageComponent,
+    component: SignupComponent,
   },
 ];
 
 @NgModule({
-  declarations: [TaskManageComponent],
+  declarations: [SignupComponent],
   imports: [
     CommonModule,
-    SharedModule,
     MaterialModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes),
   ],
 })
-export class TaskManageModule {}
+export class SignupModule {}

@@ -6,11 +6,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class SignupComponent implements OnInit {
   form: FormGroup;
   err = null;
 
@@ -31,22 +31,18 @@ export class LoginComponent implements OnInit {
   submitForm() {
     if (this.form.value.username && this.form.value.password) {
       this.authService
-        .attemptAuth(this.form.value.username, this.form.value.password)
+        .attemptSignup(this.form.value.username, this.form.value.password)
         .then(() => {
-          this.snackBar.open('Login success.', 'Dismiss', {
+          this.snackBar.open('Signup success.', 'Dismiss', {
             duration: 2000,
           });
           this.router.navigateByUrl('/');
         })
         .catch(() => {
-          this.snackBar.open('Login failed.', 'Dismiss', {
+          this.snackBar.open('Signup failed.', 'Dismiss', {
             duration: 2000,
           });
         });
     }
-  }
-
-  gotoSignup() {
-    this.router.navigateByUrl('/signup');
   }
 }
