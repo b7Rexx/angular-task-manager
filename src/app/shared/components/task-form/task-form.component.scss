@@ -1,0 +1,13 @@
+.task-form {
+  padding: 12px;
+}
+
+label {
+  color: gray;
+}
+.type-wrapper {
+  margin: 8px 0;
+  mat-radio-button {
+    margin-right: 12px;
+  }
+}

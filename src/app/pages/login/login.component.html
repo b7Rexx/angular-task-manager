@@ -1,0 +1,22 @@
+<div class="login-container">
+  <form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
+    <h4>Login</h4>
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Username" formControlName="username" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+    </mat-form-field>
+
+    <div class="button-wrapper">
+      <button mat-flat-button color="primary">Login</button>
+      <button type="button" mat-button (click)="gotoSignup()">Signup</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,17 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 100%;
+  margin: auto;
+}
+
+mat-form-field.full-width {
+  width: 100%;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,34 @@
+<div class="container">
+  <h4>Home</h4>
+  <mat-divider></mat-divider>
+  <div class="content-wrapper">
+    <div class="list">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Search"
+          autocomplete="off"
+          [(ngModel)]="searchString"
+        />
+      </mat-form-field>
+
+      <ng-container *ngFor="let task of taskList | taskSearch: searchString">
+        <app-task-card [task]="task" (clickHandler)="cardClickHandler(task)">
+          {{ task.title }}
+        </app-task-card>
+      </ng-container>
+      <app-task-card (clickHandler)="addCardClickHandler()">
+        Add new task...
+      </app-task-card>
+    </div>
+    <div class="detail" *ngIf="selectedTask">
+      <ng-container>
+        <app-task-form
+          [task]="selectedTask"
+          [edit]="taskEditState"
+          (removeHandler)="removeTaskHandler()"
+        ></app-task-form>
+      </ng-container>
+    </div>
+  </div>
+</div>
