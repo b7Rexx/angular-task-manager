@@ -16,3 +16,12 @@ body {
     margin-right: -12px;
   }
 }
+
+mat-form-field.full-width {
+  width: 100%;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
+}

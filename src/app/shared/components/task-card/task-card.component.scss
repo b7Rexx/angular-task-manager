@@ -2,8 +2,55 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 0 2px #eeeeee;
+  margin: 12px 0;
+  cursor: pointer;
 }
 
 .task-type {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   padding: 4px;
+  mat-icon {
+    color: red;
+  }
+  &.bug {
+    mat-icon {
+      color: red;
+    }
+  }
+  &.improvement {
+    mat-icon {
+      color: green;
+    }
+  }
+  &.research {
+    mat-icon {
+      color: orange;
+    }
+  }
+  &.story {
+    mat-icon {
+      color: greenyellow;
+    }
+  }
+  &.task {
+    mat-icon {
+      color: skyblue;
+    }
+  }
+  &.default {
+    mat-icon {
+      color: gainsboro;
+    }
+  }
+}
+
+.task-content {
+  padding: 4px;
+  overflow: hidden;
+  max-height: 38px;
 }

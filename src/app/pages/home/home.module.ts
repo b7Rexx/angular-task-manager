@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -16,6 +17,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [HomeComponent],
   imports: [
+    FormsModule,
     CommonModule,
     SharedModule,
     MaterialModule,

@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Task } from 'src/app/models/task.interface';
-import { TaskType } from 'src/app/models/task.enum';
+import { TaskType, Status } from 'src/app/models/task.enum';
 
 @Component({
   selector: 'app-task-card',
@@ -10,12 +10,12 @@ import { TaskType } from 'src/app/models/task.enum';
 })
 export class TaskCardComponent implements OnInit {
   @Input('task') task: Task;
+  @Output('clickHandler') clickHandler = new EventEmitter();
 
   taskType = TaskType;
+  taskStatus = Status;
 
-  constructor() {
-    console.log('asdasd > ', this.taskType);
-  }
+  constructor() {}
 
   ngOnInit(): void {}
 }

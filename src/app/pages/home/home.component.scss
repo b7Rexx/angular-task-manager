@@ -1,0 +1,12 @@
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  .list {
+    width: 100%;
+  }
+  .detail {
+    width: 500px;
+    margin-left: 10px;
+    box-shadow: -0.2px 0 0 gray;
+  }
+}

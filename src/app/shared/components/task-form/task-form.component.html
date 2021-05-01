@@ -1,0 +1,65 @@
+<div class="task-form">
+  <form [formGroup]="form" (ngSubmit)="saveForm()" novalidate>
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Title" formControlName="title" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <textarea
+        matInput
+        placeholder="Description"
+        formControlName="description"
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="type">
+        <mat-option
+          *ngFor="let taskT of taskType | keyvalue"
+          [value]="taskT.value"
+        >
+          {{ taskT.value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <label>Priority</label>
+    <div class="type-wrapper">
+      <mat-radio-group formControlName="priority">
+        <mat-radio-button
+          *ngFor="let taskP of taskPriority | keyvalue"
+          [value]="taskP.value"
+          >{{ taskP.value }}</mat-radio-button
+        >
+      </mat-radio-group>
+    </div>
+
+    <mat-form-field class="full-width">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option
+          *ngFor="let taskS of taskStatus | keyvalue"
+          [value]="taskS.value"
+        >
+          {{ taskS.value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="button-wrapper">
+      <button mat-flat-button color="primary">
+        {{ edit ? "Save" : "Create" }}
+      </button>
+      <button
+        type="button"
+        color="warn"
+        mat-button
+        (click)="removeTask()"
+        *ngIf="edit"
+      >
+        Remove
+      </button>
+    </div>
+  </form>
+</div>

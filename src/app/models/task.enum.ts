@@ -1,23 +1,23 @@
 export enum TaskType {
-  Bug,
-  Improvement,
-  Research,
-  Task,
-  Story,
+  Bug = 'Bug',
+  Improvement = 'Improvement',
+  Research = 'Research',
+  Task = 'Task',
+  Story = 'Story',
 }
 
 export enum Priority {
-  Critical,
-  Major,
-  Medium,
-  Minor,
+  Critical = 'Critical',
+  Major = 'Major',
+  Medium = 'Medium',
+  Minor = 'Minor',
 }
 
 export enum Status {
-  ToDo,
-  InProgress,
-  InReview,
-  QA,
-  Verified,
-  Done,
+  ToDo = 'ToDo',
+  InProgress = 'InProgress',
+  InReview = 'InReview',
+  QA = 'QA',
+  Verified = 'Verified',
+  Done = 'Done',
 }

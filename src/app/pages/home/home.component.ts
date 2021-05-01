@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { Task } from 'src/app/models/task.interface';
 import { TaskService } from 'src/app/services/task.service';
@@ -8,16 +9,39 @@ import { TaskService } from 'src/app/services/task.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   taskList: Array<Task>;
+  searchString = '';
+  selectedTask;
+  taskEditState = false;
+  taskSubscription: Subscription;
 
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
-    this.fetchTasks();
+    this.taskSubscription = this.taskService.getTasks().subscribe((tasks) => {
+      this.taskList = tasks;
+    });
+    this.taskService.fetchTasks();
   }
 
-  fetchTasks() {
-    this.taskList = this.taskService.tasks;
+  ngOnDestroy(): void {
+    if (this.taskSubscription) {
+      this.taskSubscription.unsubscribe();
+    }
+  }
+
+  cardClickHandler(task) {
+    this.selectedTask = task;
+    this.taskEditState = true;
+  }
+
+  addCardClickHandler() {
+    this.selectedTask = {};
+    this.taskEditState = false;
+  }
+
+  removeTaskHandler() {
+    delete this.selectedTask;
   }
 }
