@@ -14,7 +14,13 @@
 
       <ng-container *ngFor="let task of taskList | taskSearch: searchString">
         <app-task-card [task]="task" (clickHandler)="cardClickHandler(task)">
-          {{ task.title }}
+          <span appReadmore [textlimit]="50">
+            {{ task.title }}
+          </span>
+          <br />
+          <i class="created-date">
+            {{ task.humanizeDate }}
+          </i>
         </app-task-card>
       </ng-container>
       <app-task-card (clickHandler)="addCardClickHandler()">

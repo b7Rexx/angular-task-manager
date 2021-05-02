@@ -1,15 +1,16 @@
 <div class="container">
   <h4>Manage</h4>
   <mat-divider></mat-divider>
-  <ng-container *ngFor="let task of taskList">
-    <app-task-card [task]="task">
-      <b>
-        {{ task.title }}
-      </b>
-      <br />
-      <i>
-        {{ task.description }}
-      </i>
-    </app-task-card>
-  </ng-container>
+  <div class="manage-wrapper">
+    <div class="manage-block">
+      <ng-container *ngFor="let taskS of taskStatus | keyvalue">
+        <div class="manage-item">
+          <app-manage-status
+            [status]="taskS.value"
+            [taskList]="taskList"
+          ></app-manage-status>
+        </div>
+      </ng-container>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,36 @@
+<div class="manage-status-block">
+  <div class="manage-status-header">
+    <b>{{ status }}</b>
+  </div>
+
+  <div class="manage-status-list custom-scroll">
+    <ng-container *ngFor="let task of taskList | filterTaskStatus: status">
+      <app-task-card [task]="task">
+        <b appReadmore [textlimit]="50">
+          {{ task.title }}
+        </b>
+        <br />
+        <p appReadmore [textlimit]="50">
+          {{ task.description }}
+        </p>
+        <mat-form-field class="full-width status-select">
+          <mat-select
+            formControlName="status"
+            [value]="task.status"
+            (selectionChange)="tastStatusChangeHandler(task, $event.value)"
+          >
+            <mat-option
+              *ngFor="let taskS of taskStatus | keyvalue"
+              [value]="taskS.value"
+            >
+              {{ taskS.value }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <i class="created-date">
+          {{ task.humanizeDate }}
+        </i>
+      </app-task-card>
+    </ng-container>
+  </div>
+</div>
