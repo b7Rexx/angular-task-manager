@@ -7,4 +7,6 @@ export interface Task {
   type: TaskType;
   priority?: Priority;
   status: Status;
+  date?: Date | string | number;
+  humanizeDate?: string;
 }
