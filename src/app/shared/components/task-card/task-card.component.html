@@ -1,43 +1,68 @@
 <mat-card class="task-card" (click)="clickHandler.emit()">
-  <ng-container *ngIf="task" [ngSwitch]="task.type">
-    <span *ngSwitchCase="taskType.Bug" class="task-type bug">
-      <mat-icon *ngIf="task.status === taskStatus.Done">check_circle</mat-icon>
-      <mat-icon *ngIf="task.status !== taskStatus.Done"
-        >radio_button_checked</mat-icon
-      >
-    </span>
-    <span *ngSwitchCase="taskType.Improvement" class="task-type improvement">
-      <mat-icon *ngIf="task.status === taskStatus.Done">check_circle</mat-icon>
-      <mat-icon *ngIf="task.status !== taskStatus.Done"
-        >radio_button_checked</mat-icon
-      >
-    </span>
-    <span *ngSwitchCase="taskType.Research" class="task-type research">
-      <mat-icon *ngIf="task.status === taskStatus.Done">check_circle</mat-icon>
-      <mat-icon *ngIf="task.status !== taskStatus.Done"
-        >radio_button_checked</mat-icon
-      >
-    </span>
-    <span *ngSwitchCase="taskType.Story" class="task-type story">
-      <mat-icon *ngIf="task.status === taskStatus.Done">check_circle</mat-icon>
-      <mat-icon *ngIf="task.status !== taskStatus.Done"
-        >radio_button_checked</mat-icon
-      >
-    </span>
-    <span *ngSwitchCase="taskType.Task" class="task-type task">
-      <mat-icon *ngIf="task.status === taskStatus.Done">check_circle</mat-icon>
-      <mat-icon *ngIf="task.status !== taskStatus.Done"
-        >radio_button_checked</mat-icon
-      >
-    </span>
-    <span *ngSwitchDefault class="task-type default">
-      <mat-icon *ngIf="task.status === taskStatus.Done">check_circle</mat-icon>
-      <mat-icon *ngIf="task.status !== taskStatus.Done"
-        >radio_button_checked</mat-icon
-      >
-    </span>
-  </ng-container>
-  <div class="task-content">
+  <mat-card-header>
+    <div mat-card-avatar>
+      <ng-container *ngIf="task" [ngSwitch]="task.type">
+        <span *ngSwitchCase="taskType.Bug" class="task-type bug">
+          <mat-icon *ngIf="task.status === taskStatus.Done"
+            >check_circle</mat-icon
+          >
+          <mat-icon *ngIf="task.status !== taskStatus.Done"
+            >radio_button_checked</mat-icon
+          >
+        </span>
+        <span
+          *ngSwitchCase="taskType.Improvement"
+          class="task-type improvement"
+        >
+          <mat-icon *ngIf="task.status === taskStatus.Done"
+            >check_circle</mat-icon
+          >
+          <mat-icon *ngIf="task.status !== taskStatus.Done"
+            >radio_button_checked</mat-icon
+          >
+        </span>
+        <span *ngSwitchCase="taskType.Research" class="task-type research">
+          <mat-icon *ngIf="task.status === taskStatus.Done"
+            >check_circle</mat-icon
+          >
+          <mat-icon *ngIf="task.status !== taskStatus.Done"
+            >radio_button_checked</mat-icon
+          >
+        </span>
+        <span *ngSwitchCase="taskType.Story" class="task-type story">
+          <mat-icon *ngIf="task.status === taskStatus.Done"
+            >check_circle</mat-icon
+          >
+          <mat-icon *ngIf="task.status !== taskStatus.Done"
+            >radio_button_checked</mat-icon
+          >
+        </span>
+        <span *ngSwitchCase="taskType.Task" class="task-type task">
+          <mat-icon *ngIf="task.status === taskStatus.Done"
+            >check_circle</mat-icon
+          >
+          <mat-icon *ngIf="task.status !== taskStatus.Done"
+            >radio_button_checked</mat-icon
+          >
+        </span>
+        <span *ngSwitchDefault class="task-type default">
+          <mat-icon *ngIf="task.status === taskStatus.Done"
+            >check_circle</mat-icon
+          >
+          <mat-icon *ngIf="task.status !== taskStatus.Done"
+            >radio_button_checked</mat-icon
+          >
+        </span>
+      </ng-container>
+    </div>
+    <mat-card-title>
+      <span appReadmore [textlimit]="25">
+        {{ task.title }}
+      </span>
+    </mat-card-title>
+    <mat-card-subtitle>{{ task.type }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
     <ng-content></ng-content>
-  </div>
+  </mat-card-content>
 </mat-card>
