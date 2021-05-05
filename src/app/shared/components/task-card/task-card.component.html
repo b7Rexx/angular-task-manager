@@ -1,4 +1,4 @@
-<div class="task-card" (click)="clickHandler.emit()">
+<mat-card class="task-card" (click)="clickHandler.emit()">
   <ng-container *ngIf="task" [ngSwitch]="task.type">
     <span *ngSwitchCase="taskType.Bug" class="task-type bug">
       <mat-icon *ngIf="task.status === taskStatus.Done">check_circle</mat-icon>
@@ -40,4 +40,4 @@
   <div class="task-content">
     <ng-content></ng-content>
   </div>
-</div>
+</mat-card>

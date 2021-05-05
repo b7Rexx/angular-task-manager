@@ -11,7 +11,9 @@
           [(ngModel)]="searchString"
         />
       </mat-form-field>
-
+      <div>
+        <b>List of tasks</b>
+      </div>
       <ng-container *ngFor="let task of taskList | taskSearch: searchString">
         <app-task-card [task]="task" (clickHandler)="cardClickHandler(task)">
           <span appReadmore [textlimit]="50">
@@ -23,9 +25,10 @@
           </i>
         </app-task-card>
       </ng-container>
-      <app-task-card (clickHandler)="addCardClickHandler()">
+
+      <button mat-flat-button color="primary" (click)="addCardClickHandler()">
         Add new task...
-      </app-task-card>
+      </button>
     </div>
     <div class="detail" *ngIf="selectedTask">
       <ng-container>

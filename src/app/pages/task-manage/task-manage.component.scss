@@ -8,7 +8,7 @@
 .manage-block {
   display: flex;
   width: calc(240px * 6 + 96px);
-  height: calc(100% - 12px);
+  height: calc(100% - 14px);
 }
 
 .manage-item {
@@ -16,5 +16,5 @@
   margin: 0 4px;
   padding: 0 4px;
   height: 100%;
-  background: #ffffff;
+  border: 1px solid #c4c9d0;
 }

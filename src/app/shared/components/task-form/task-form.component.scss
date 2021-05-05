@@ -1,3 +1,11 @@
+.task-form-header {
+  padding: 12px;
+  background: var(--main-dark);
+  color: var(--main-text);
+  margin: 0;
+  letter-spacing: 1.2px;
+}
+
 .task-form {
   padding: 12px;
 }
@@ -8,6 +16,7 @@ label {
 .type-wrapper {
   margin: 8px 0;
   mat-radio-button {
-    margin-right: 12px;
+    margin-right: 8px;
+    margin-bottom: 8px;
   }
 }

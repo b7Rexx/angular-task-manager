@@ -1,8 +1,6 @@
 import {
   AfterViewInit,
   ElementRef,
-  EventEmitter,
-  Output,
   Directive,
   Input,
   Renderer2,
