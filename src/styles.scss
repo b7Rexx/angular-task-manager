@@ -1,5 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  --main: #0052cc;
+  --main-dark: #172b4d;
+  --main-text: #eaeaea;
+}
+
 html,
 body {
   height: 100%;
@@ -37,4 +43,10 @@ mat-form-field.full-width {
 
 .created-date {
   font-size: 12px;
+}
+
+.grad-divider {
+  border-width: 2px;
+  border-style: solid;
+  border-image: linear-gradient(to right, transparent, #c4c9d0, transparent) 0 0 1 0;
 }

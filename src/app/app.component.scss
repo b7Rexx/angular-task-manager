@@ -14,7 +14,29 @@
   mat-list-item {
     cursor: pointer;
     &.active {
-      background: #fafafa;
+      background: #eaeaea;
+    }
+
+    &:hover {
+      background: #eaeaea;
     }
   }
+}
+
+.sidenav-list {
+  mat-list-item {
+    color: var(--main);
+    mat-icon {
+      margin-right: 12px;
+    }
+  }
+}
+
+.sidenav-toggle-btn {
+  padding: 0 12px;
+}
+
+.sidenav-header {
+  background: var(--main-dark);
+  color: var(--main-text);
 }

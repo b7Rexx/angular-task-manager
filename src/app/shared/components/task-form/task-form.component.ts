@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {
@@ -89,10 +90,21 @@ export class TaskFormComponent implements OnInit, OnChanges {
   }
 
   removeTask() {
-    this.taskService.removeTask(this.task);
-    this.removeHandler.emit();
-    this.snackBar.open('Task removed.', 'Dismiss', {
-      duration: 2000,
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You want to remove this task from the list!',
+      icon: 'error',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, remove it!',
+      cancelButtonText: 'No, keep it',
+    }).then((result) => {
+      if (result.value) {
+        this.taskService.removeTask(this.task);
+        this.removeHandler.emit();
+        this.snackBar.open('Task removed.', 'Dismiss', {
+          duration: 2000,
+        });
+      }
     });
   }
 }

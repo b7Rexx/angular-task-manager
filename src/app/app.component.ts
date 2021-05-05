@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { Component } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
 
@@ -22,8 +23,19 @@ export class AppComponent {
   }
 
   logout() {
-    this.authService.logout().then(() => {
-      this.router.navigateByUrl('/login');
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You want to logout of this application!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'Cancel',
+    }).then((result) => {
+      if (result.value) {
+        this.authService.logout().then(() => {
+          this.router.navigateByUrl('/login');
+        });
+      }
     });
   }
 

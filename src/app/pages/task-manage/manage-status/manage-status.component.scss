@@ -10,7 +10,10 @@
 .manage-status-header {
   height: 24px;
   padding: 4px 0;
+  margin: 0 -4px;
   text-align: center;
+  background: var(--main-dark);
+  color: var(--main-text);
 }
 
 .status-select {
