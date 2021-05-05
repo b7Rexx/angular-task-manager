@@ -3,7 +3,8 @@
   <mat-divider></mat-divider>
   <div class="content-wrapper">
     <div class="list">
-      <mat-form-field>
+      <mat-form-field class="search-input">
+        <mat-icon matPrefix>search</mat-icon>
         <input
           matInput
           placeholder="Search"
@@ -16,10 +17,6 @@
       </div>
       <ng-container *ngFor="let task of taskList | taskSearch: searchString">
         <app-task-card [task]="task" (clickHandler)="cardClickHandler(task)">
-          <span appReadmore [textlimit]="50">
-            {{ task.title }}
-          </span>
-          <br />
           <i class="created-date">
             {{ task.humanizeDate }}
           </i>

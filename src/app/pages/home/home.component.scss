@@ -10,3 +10,11 @@
     box-shadow: -0.2px 0 0 gray;
   }
 }
+
+.search-input {
+  mat-icon {
+    color: grey;
+    font-size: 16px;
+    margin-right: 4px;
+  }
+}

@@ -7,10 +7,6 @@
   <div class="manage-status-list custom-scroll">
     <ng-container *ngFor="let task of taskList | filterTaskStatus: status">
       <app-task-card [task]="task">
-        <b appReadmore [textlimit]="50">
-          {{ task.title }}
-        </b>
-        <br />
         <p appReadmore [textlimit]="50">
           {{ task.description }}
         </p>
